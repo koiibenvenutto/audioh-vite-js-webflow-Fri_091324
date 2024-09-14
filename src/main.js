@@ -1,6 +1,7 @@
 import './styles/style.css'
 console.log('test')
 // main.js
+// main.js
 
 export function initTextReveal() {
   const revealContainers = document.querySelectorAll('.reveal-text-container')
@@ -17,12 +18,19 @@ export function initTextReveal() {
       container.appendChild(charSpan)
     })
   })
+  const rect = document.querySelector('.sticky-section').getBoundingClientRect()
+  const initialDistance = window.innerHeight - rect.bottom
 
   function updateReveal() {
+    const rect = document
+      .querySelector('.sticky-section')
+      .getBoundingClientRect()
+    const currentDistance = window.innerHeight - rect.bottom
     revealContainers.forEach((container) => {
-      const rect = container.getBoundingClientRect()
       const scrollProgress =
-        1 - rect.bottom / (window.innerHeight + rect.height)
+        (initialDistance - currentDistance) / initialDistance
+
+      console.log(`Scroll Progress: ${scrollProgress.toFixed(2)}`)
 
       if (scrollProgress > 0 && scrollProgress < 1) {
         const chars = container.querySelectorAll('span')
