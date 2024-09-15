@@ -14,7 +14,8 @@ export function initTextReveal() {
       const charSpan = document.createElement('span')
       charSpan.textContent = char
       charSpan.style.opacity = '0'
-      charSpan.style.transition = 'opacity 0.05s'
+      charSpan.style.transition = 'opacity 0.4s'
+      charSpan.style.color = char.style.color
       container.appendChild(charSpan)
     })
   })
