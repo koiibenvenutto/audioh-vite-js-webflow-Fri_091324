@@ -5,21 +5,23 @@ console.log('test')
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import SplitType from 'split-type'
-// eslint-disable-next-line no-use-before-define
+
 document.addEventListener('DOMContentLoaded', () => {
   gsap.registerPlugin(ScrollTrigger)
   // gsap code here!
 
-  // Split text into words and characters
+  // SplitType: split text into words and characters
   const text = new SplitType('#target', { types: 'words, chars' })
 
   // Animate characters into view with a stagger effect
   gsap.from(text.chars, {
-    opacity: 0,
+    opacity: 0.1,
+    stagger: 1,
+    duration: 3,
     scrollTrigger: {
       trigger: '.sticky-section',
-      start: 'top top',
-      end: 'bottom bottom',
+      start: 'top top+=50%',
+      end: 'bottom-=10% bottom',
       scrub: true,
     },
   })
