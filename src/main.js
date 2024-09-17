@@ -6,7 +6,6 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import SplitType from 'split-type'
 
-// document.addEventListener('DOMContentLoaded', () => {
 gsap.registerPlugin(ScrollTrigger)
 // gsap code here!
 
@@ -25,4 +24,3 @@ gsap.from(text.chars, {
     scrub: true,
   },
 })
-// })
