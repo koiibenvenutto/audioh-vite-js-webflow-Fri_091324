@@ -1,7 +1,8 @@
 import './styles/style.css'
-// console.log('test')
+console.log('local host')
 // main.js
 
+import Intercom from '@intercom/messenger-js-sdk'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import mixpanel from 'mixpanel-browser'
@@ -38,7 +39,6 @@ mixpanel.identify('$device_id')
 mixpanel.people.set({ $email: '' })
 
 // Custom JS to track button clicks using event listeners
-console.log('test1')
 document.body.addEventListener('click', function (event) {
   let target = event.target
 
@@ -59,4 +59,8 @@ document.body.addEventListener('click', function (event) {
     }
     target = target.parentElement
   }
+})
+
+Intercom({
+  app_id: 'zyh9nu80',
 })
